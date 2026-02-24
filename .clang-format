@@ -1,6 +1,6 @@
 ---
 Language:        Cpp
-Standard:        c89
+Standard:        Auto
 BasedOnStyle:    GNU
 AccessModifierOffset: -4
 AlignAfterOpenBracket: AlwaysBreak
@@ -59,7 +59,7 @@ IncludeCategories:
     Priority:        2
   - Regex:           '.*'
     Priority:        3
-IndentCaseLabels: 4
+IndentCaseLabels: true
 IndentPPDirectives: AfterHash
 IndentWidth:     4
 IndentWrappedFunctionNames: false
@@ -80,7 +80,6 @@ SpacesInCStyleCastParentheses: false
 SpacesInContainerLiterals: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
-Standard:        c89
 TabWidth:        8
 UseTab:          Never
 ...
