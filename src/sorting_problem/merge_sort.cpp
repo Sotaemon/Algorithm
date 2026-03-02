@@ -1,6 +1,7 @@
 #include <iostream>
 
-int merge(int a[], int p, int q, int r) {
+int
+merge(int a[], int p, int q, int r) {
     int l_n = q - p + 1;
     int r_n = r - q;
     int left[l_n], right[r_n];
@@ -31,7 +32,8 @@ int merge(int a[], int p, int q, int r) {
     return 0;
 }
 
-int merge_sort(int a[], int p, int r) {
+int
+merge_sort(int a[], int p, int r) {
     if (p >= r) {
         return 0;
     }
@@ -42,8 +44,9 @@ int merge_sort(int a[], int p, int r) {
     return 0;
 }
 
-int main(void) {
-    int a[] = {4, 5, 2, 3, 1, 0, 7, 5};
+int
+main(void) {
+    int a[] = { 4, 5, 2, 3, 1, 0, 7, 5 };
     int ans = merge_sort(a, 0, 7);
     for (int i = 0; i < 8; ++i)
         std::cout << a[i] << ' ';

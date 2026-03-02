@@ -1,32 +1,54 @@
 #include <iostream>
 
-void
-exchang_int(int *a, int *b) {
-    *a ^= *b;
-    *b ^= *a;
-    *a ^= *b;
+int
+merge(int a[], int p, int q, int r) {
+    int l_n = q - p + 1;
+    int r_n = r - q;
+    int left[l_n], right[r_n];
+
+    for (int i = 0; i < l_n; ++i)
+        left[i] = a[p + i];
+    for (int i = 0; i < r_n; ++i)
+        right[i] = a[q + i + 1];
+
+    int k = p;
+    int i = 0, j = 0;
+
+    while (i < l_n && j < r_n) {
+        if (left[i] <= right[j]) {
+            a[k++] = left[i++];
+        } else {
+            a[k++] = right[j++];
+        }
+    }
+
+    while (i < l_n) {
+        a[k++] = left[i++];
+    }
+    while (j < r_n) {
+        a[k++] = right[j++];
+    }
+
+    return 0;
 }
 
 int
-sort_bubble(int a[], int n) {
-    for (int i = 0; i < n; ++i) {
-        for (int j = n - 1; j > i; --j) {
-            if (a[j - 1] > a[j]) {
-                exchang_int(&a[j - 1], &a[j]);
-            }
-        }
+merge_sort(int a[], int p, int r) {
+    if (p >= r) {
+        return 0;
     }
+    int q = (p + r) / 2;
+    merge_sort(a, p, q);
+    merge_sort(a, q + 1, r);
+    merge(a, p, q, r);
     return 0;
 }
 
 int
 main(void) {
-    int a[] = { 5, 6, 2, 2, 1, 7, 3, 9, 1 };
-    int n = sizeof(a) / sizeof(int);
-    int ans = sort_bubble(a, n);
-    if (ans)
-        return 1;
-    for (int i = 0; i < n; ++i)
+    int a[] = { 4, 5, 2, 3, 1, 0, 7, 5 };
+    int ans = merge_sort(a, 0, 7);
+    for (int i = 0; i < 8; ++i)
         std::cout << a[i] << ' ';
     std::cout << std::endl;
     return 0;

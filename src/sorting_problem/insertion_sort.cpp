@@ -1,6 +1,7 @@
 #include <iostream>
 
-int sort_insertion(int n, int a[]) {
+int
+sort_insertion(int n, int a[]) {
     int key = 0, j = 0;
     for (int i = 1; i < n; ++i) {
         key = a[i];
@@ -12,8 +13,9 @@ int sort_insertion(int n, int a[]) {
     return 0;
 }
 
-int main() {
-    int a[] = {5, 2, 4, 6, 1, 3};
+int
+main() {
+    int a[] = { 5, 2, 4, 6, 1, 3 };
     int n = sizeof(a) / sizeof(int);
     int ans = sort_insertion(n, a);
     if (ans == 0) {

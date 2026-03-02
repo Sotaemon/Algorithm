@@ -1,2 +1,4 @@
 # 基础忽略
 /debug/
+# 中转文件
+/src/cache.cpp
